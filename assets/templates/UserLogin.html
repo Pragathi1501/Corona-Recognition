@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block contents%}
+
+  <header class="masthead">
+            <div class="container d-flex h-100 align-items-center">
+                <div class="mx-auto text-center">
+                    <h5 class="mx-auto my-0 text-uppercase">User Login Form</h5>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                     <form class="form-inline d-flex" method="post" action="{%url 'UserLoginCheck'%}">
+                         {%csrf_token%}
+                            <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="text" name="loginname" placeholder="Enter Login ID" /><br/>
+                            <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="password" name="pswd" placeholder="Enter Password" /><br/><br/>
+                            <button class="btn btn-primary mx-auto" type="submit">Login</button>
+                        </form>
+
+                    </h2>
+                    <!--<a class="btn btn-primary js-scroll-trigger" href="#about">Get Started</a>-->
+                </div>
+            </div>
+        </header>
+{%endblock%}

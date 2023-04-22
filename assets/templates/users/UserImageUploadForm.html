@@ -1,0 +1,89 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+<section class="signup-section" id="signup">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+
+
+                    <p class="mx-auto my-0 text-uppercase">A corona discharge is an electrical discharge caused by the ionization of a fluid such as air surrounding a conductor carrying a high voltage. It represents a local region where the air has undergone electrical breakdown and become conductive, allowing charge to continuously leak off the conductor into the air</p>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Select a Corona Images</h2>
+                    <form  action="{%url 'UploadImageAction'%}" enctype="multipart/form-data" method="POST">
+{%csrf_token%}
+												 <table>
+                        <div class="form-group row">
+                <div class="col-md-12">
+					<strong>Select an Image</strong>  <input type="file" name="file"  accept="image/gif, image/jpeg, image/png" required placeholder="Select an Image to Upload"><br/>
+                </div>
+              </div>
+                        <div class="form-group row">
+
+              </div>
+
+
+                                <button class="btn  btn-primary text-white py-3 px-5"
+                                        type="submit">
+                                    Upload
+                                </button>
+
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='GREEN'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+</form>
+                    </div>
+                </div>
+            </div>
+</section>
+
+                    <h2>Results table</h2>
+										 <font color="Black">
+                                                  <table border="1px" class="table table-sm table-hover table-dark" >
+                    <thead>
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">File Name</th>
+                        <th scope="col">Red</th>
+                        <th scope="col">Green</th>
+                        <th scope="col">Blue</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Width</th>
+                        <th scope="col">Blocks</th>
+                        <th scope="col">Brightness</th>
+                        <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Download</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row" style="color: BLUE; background-color:#FFFCBB">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.username}}</td>
+                        <td><a class="btn-link" href="/GetImageHOGRGBGLH/?imagename={{ i.filename }}">{{i.filename}}</a> </td>
+                        <td>{{i.redColor}}</td>
+                        <td>{{i.greenColor}}</td>
+                        <td>{{i.blueColor}}</td>
+                        <td>{{i.picHeight}}</td>
+                        <td>{{i.picWidht}}</td>
+                        <td>{{i.blockofPixel}}</td>
+                        <td>{{i.picbrightness}}</td>
+                        <td>{{i.cdate}}</td>
+                        <td><img src="{{i.file}}" width="45" height="40"> </td>
+						<td><a class="btn-link" href="{{ i.file }}" target="_blank">Download</a></td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+
+<!--<img src="{%static 'img/c11.jpg'%}" width="320" height="200">-->
+{%endblock%}

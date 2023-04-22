@@ -1,0 +1,53 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+ <section class="contact-section bg-black">
+            <div class="container">
+                <h2 class="text-white mb-5">Color as A Features</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Support Vector Machine</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50">{{svmMrmse}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">K-Nearest Neighbor</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50">{{knnmrmse}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Decision Tree</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50">{{dtmrmse}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Single Layer Perceptron</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50">{{slpmrmse}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+{%endblock%}
